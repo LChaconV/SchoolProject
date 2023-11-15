@@ -33,6 +33,7 @@ async function subjects_teacher(teacherID, contenedor) {
       if (data.user_teacherid == teacherID) {
         profesor.push({
           subject: data.subject.name_subject,
+          subjectid:data.subjectid, // AÑADIDO PRUEBA
           course: data.course.name_course,
           courseID :data.courseid
         });
@@ -74,8 +75,10 @@ async function subjects_teacher(teacherID, contenedor) {
               newBtnCourse.innerHTML = data.course;
               newBtnCourse.id = "newBtnCourse"
               newBtnCourse.value = data.courseID;
+              newBtnCourse.name = data.subjectid
               document.body.appendChild(newBtnCourse);
               courses_btn.appendChild(newBtnCourse);
+              console.log("soy name",newBtnCourse.name)
             }
           });
           newBtnCourse.addEventListener("click", function () {
@@ -83,7 +86,8 @@ async function subjects_teacher(teacherID, contenedor) {
             let courseData = {
               courseID: newBtnCourse.value,
               teacherName: teacherName,
-              // subjectid:1////////////
+              subjectid: newBtnCourse.name
+             
             };
   
             // Convertir el objeto en una cadena JSON

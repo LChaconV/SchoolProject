@@ -67,9 +67,9 @@ export async function viewGrade (req,res){
 // ------------------------------------- PRUEBA -------------------------------------//
 //4. Registrar notas
 export async function registerGrade (req,res){
-    let{user_studentid,first_period,second_period,third_period}= req.body
-    let answer = await conexion.query ("SELECT user_studentid FROM students WHERE user_studentid =$1", [user_studentid])
-    let changeNote= await conexion.query("UPDATE students SET first_period = $1, second_period = $2, third_period = $3 WHERE user_studentid=$4",[first_period,second_period,third_period,user_studentid])
+    let{user_studentid,first_period,second_period,third_period,subjectid}= req.body
+    let answer = await conexion.query ("SELECT user_studentid,first_period,second_period,third_period FROM students WHERE user_studentid =$1", [user_studentid])
+    let changeNote= await conexion.query("UPDATE students SET first_period = $1, second_period = $2, third_period = $3 WHERE user_studentid=$4 and subjectid=$5",[first_period,second_period,third_period,user_studentid,subjectid])
     res.status(200).json(changeNote)
   }
 
