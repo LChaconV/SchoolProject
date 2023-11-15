@@ -67,6 +67,7 @@ async function subjects_teacher(teacherID, contenedor) {
           profesor.forEach((data) => {
             console.log(profesor)
             if (newBtn.value == data.subject) {
+
               const newBtnCourse = document.createElement("button");
 
               // Configurar el texto del botón con la materia
@@ -82,6 +83,7 @@ async function subjects_teacher(teacherID, contenedor) {
             let courseData = {
               courseID: newBtnCourse.value,
               teacherName: teacherName,
+              // subjectid:1////////////
             };
   
             // Convertir el objeto en una cadena JSON

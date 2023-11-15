@@ -93,6 +93,22 @@ saveChangesButton.addEventListener('click', async function () {
         third_period: grade3
     };
     console.log("studentObj",i, ":", studentObj)
+
+    // Configuración de la solicitud
+const url = 'https://localhost:3000/teacher/registerGrade';
+const datos=studentObj
+// Solicitud PUT
+fetch(url, {
+  method: 'PUT',
+  headers: {
+    'Content-Type': 'application/json' // Asegúrate de establecer el tipo de contenido correcto
+  },
+  body: JSON.stringify(datos) // Convierte el objeto a una cadena JSON
+})
+  .then(response => response.json())
+  .then(data => console.log('Respuesta:', data))
+  .catch(error => console.error('Error:', error));
+
  /* Enviar solicitud sin guardarlo en el local
     // Agrega el objeto al array
     studentData.push(studentObj);
