@@ -86,13 +86,14 @@ saveChangesButton.addEventListener('click', async function () {
 
     // Crea un objeto con la información del estudiante
     let studentObj = {
-      studentid: studentName,
-      grades:{
+      user_studentid: studentName,
+      
         first_period: grade1,
         second_period: grade2,
-        third_period: grade3},
+        third_period: grade3
     };
-
+    console.log("studentObj",i, ":", studentObj)
+ /* Enviar solicitud sin guardarlo en el local
     // Agrega el objeto al array
     studentData.push(studentObj);
   }
@@ -102,7 +103,7 @@ saveChangesButton.addEventListener('click', async function () {
 
 // Enviar datos al backend
 try {
-  const response = await fetch('https://localhost:3000/teacher/registerGrade/:studenid', {
+  const response = await fetch('https://localhost:3000/teacher/registerGrade', {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -118,7 +119,5 @@ try {
 } catch (error) {
   console.error('Error de red al enviar las calificaciones al backend:', error);
 }
-  // Otra lógica que desees realizar con los datos guardados...
-  console.log(studentData)
-  console.log("Cambios guardados correctamente.");
-});
+*/
+}})
